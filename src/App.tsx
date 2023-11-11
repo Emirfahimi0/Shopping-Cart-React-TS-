@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { About, Home, Store } from "./pages";
 import { NavBarComponents } from "./components";
+import { About, Home, Store } from "./pages";
 
 const App = () => {
   return (
