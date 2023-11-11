@@ -19,7 +19,7 @@ export const NavBarComponents: FunctionComponent = () => {
     transform: "translate(25%,25%)",
   };
   return (
-    <Navbar className="bg-white shadow-sm mb-3">
+    <Navbar sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
           <Nav.Link to={"/"} as={NavLink}>
