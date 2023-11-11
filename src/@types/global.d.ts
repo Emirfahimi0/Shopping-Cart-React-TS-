@@ -4,3 +4,8 @@ interface IStoreItems {
   price: number;
   imgUrl: string;
 }
+
+declare interface ICartItem {
+  id: number;
+  quantity: number;
+}

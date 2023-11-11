@@ -2,8 +2,11 @@ import { Col, Row } from "react-bootstrap";
 import storeItems from "../data/items.json";
 import { FunctionComponent } from "react";
 import { StoreItems } from "../components";
+import { useShoppingCart } from "../context";
 
 export const Store: FunctionComponent = () => {
+  const { getItemQuantity } = useShoppingCart();
+
   return (
     <div>
       <h1>Store</h1>
@@ -11,7 +14,10 @@ export const Store: FunctionComponent = () => {
         {storeItems.map((eachItems: IStoreItems) => {
           return (
             <Col key={eachItems.id}>
-              <StoreItems quantity={1} {...eachItems} />
+              <StoreItems
+                {...eachItems}
+                eachCartQuantity={getItemQuantity(eachItems.id)}
+              />
             </Col>
           );
         })}
