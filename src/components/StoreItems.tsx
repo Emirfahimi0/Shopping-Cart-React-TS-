@@ -52,12 +52,21 @@ export const StoreItems: FunctionComponent<IStoreItemsProps> = ({
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
+                <Button
+                  style={{ fontSize: 12 }}
+                  onClick={() => decreaseCartQuantity(id)}
+                >
+                  -
+                </Button>
                 <div>
-                  <span className="fs-3">{eachCartQuantity}</span>
-                  {CART.IN_CART}
+                  <span className="fs-5">{eachCartQuantity}</span>
                 </div>
-                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
+                <Button
+                  style={{ fontSize: 12 }}
+                  onClick={() => increaseCartQuantity(id)}
+                >
+                  +
+                </Button>
               </div>
               <Button
                 variant="danger"

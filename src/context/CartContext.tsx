@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { ShoppingCartCanvas } from "../components";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type TypeShoppingCartProvider = {
   children: ReactNode;
@@ -22,6 +23,7 @@ declare interface ICartItem {
 }
 const shoppingCartContext = createContext({} as IShoppingCartContext);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useShoppingCart = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return useContext(shoppingCartContext);
@@ -31,7 +33,10 @@ export const ShoppingCartProvider = ({
   children,
 }: TypeShoppingCartProvider) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<ICartItem[]>(
+    "shopping-cart",
+    []
+  );
 
   const cartQuantity = cartItems.reduce(
     (accumulator, item) => item.quantity + accumulator,
