@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { Offcanvas, Stack } from "react-bootstrap";
 import { CartItemComponent } from ".";
 import { formatCurrencies } from "../utils";
