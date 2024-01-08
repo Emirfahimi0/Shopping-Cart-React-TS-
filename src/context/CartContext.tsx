@@ -22,6 +22,7 @@ declare interface ICartItem {
   quantity: number;
 }
 const shoppingCartContext = createContext({} as IShoppingCartContext);
+const { Provider } = shoppingCartContext;
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useShoppingCart = () => {
@@ -81,7 +82,7 @@ export const ShoppingCartProvider = ({
     });
   };
   return (
-    <shoppingCartContext.Provider
+    <Provider
       value={{
         getItemQuantity,
         increaseCartQuantity,
@@ -99,6 +100,6 @@ export const ShoppingCartProvider = ({
         handleCloseCart={closeCart}
         cartItems={cartItems}
       />
-    </shoppingCartContext.Provider>
+    </Provider>
   );
 };
